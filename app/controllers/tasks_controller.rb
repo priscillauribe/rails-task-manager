@@ -6,7 +6,15 @@ class TasksController < ApplicationController
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    @task.update(task_params)
+
+    redirect_to task_path(@task)
   end
 
   def new
@@ -19,6 +27,12 @@ class TasksController < ApplicationController
     redirect_to task_path(@task)
   end
 
+  def destroy
+    @task.destroy
+
+    redirect_to tasks_path, status: :see_other
+  end
+
   private
 
   def task_params
@@ -27,5 +41,6 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+
   end
 end

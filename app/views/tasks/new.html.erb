@@ -3,11 +3,5 @@
 <%= link_to tasks_path do %>
   Back to task list
 <% end %>
-<%# has to be a form %>
-<%= form_with task: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.submit %>
-<% end %>
+
+<%= render 'form', task: @task %>
